@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Navigation} from './components/navigation'
+import {GlobalStyle} from './components/styles/globalStyle'
+import {Home} from './pages/Home'
+import {Explore} from './pages/Explore'
+import {Router} from '@reach/router'
+import {Groups} from './pages/Groups'
+import {RegisteredUser} from './pages/RegisteredUser'
 
-function App() {
+
+export const App =()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle/>
+      <Router>
+        <Home path='/'/>
+        <Explore path='/explore'/>
+        <Groups path='/groups'/>
+        <RegisteredUser path='/user' />
+      </Router>
+      <Navigation/>
+
+    </>
   );
 }
 
-export default App;
